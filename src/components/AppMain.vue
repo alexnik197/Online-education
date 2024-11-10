@@ -1,11 +1,13 @@
 <template>
-	<h2>Добро пожаловать на платформу онлайн образования</h2>
-	<h3>Войдите в систему</h3>
-	<form @submit.prevent="logInApp">
-		<input v-model="inputLogin" type="text" autocomplete="current-login">
-		<input v-model="inputPass" type="password" autocomplete="current-password">
-		<button class="btn-login">Войти</button>
-	</form>
+	<article>
+		<h2>Добро пожаловать на платформу онлайн образования</h2>
+		<h3>Войдите в систему</h3>
+		<form @submit.prevent="logInApp">
+			<input v-model="inputLogin" type="text" autocomplete="current-login">
+			<input v-model="inputPass" type="password" autocomplete="current-password">
+			<button class="btn-login">Войти</button>
+		</form>
+	</article>
 </template>
 
 <script>
@@ -28,7 +30,14 @@ export default {
 					login: 'Arina',
 					pass: '1012',
 					role: 0
-				}
+				},
+				{
+					id: 3,
+					name: 'Мария',
+					login: 'Mariii',
+					pass: '0208',
+					role: 1
+				},
 			],
 		};
 	},

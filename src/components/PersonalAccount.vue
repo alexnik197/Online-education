@@ -3,14 +3,23 @@
 		<h2>{{ `Добро пожаловать, ${$store.state.currentUser.name}!` }}</h2>
 		<main>
 			<button v-if="$store.state.currentUser.role === 1">Создать тест</button>
-			<button>Решать тесты</button>
+			<button @click="goToTests">Решать тесты</button>
 		</main>
 	</article>
 </template>
 
 <script>
 export default {
+	data() {
+		return {
 
+		};
+	},
+	methods: {
+		goToTests() {
+			this.$router.push('/tests');
+		}
+	}
 };
 </script>
 <style scoped>

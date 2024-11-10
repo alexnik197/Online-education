@@ -11,30 +11,18 @@
       </nav>
     </header>
 
-    <main>
-      <section :class="$store.state.testMode ? 'test-mode' : ''">
-        <router-view></router-view>
-      </section>
-
-      <aside v-if="$store.state.testMode && currentURL === 'tests'">
-        <h2>Test Content</h2>
-      </aside>
-    </main>
-
+    <section>
+      <router-view></router-view>
+    </section>
   </div>
 </template>
 
 <script>
-//TODO Необходимо создать базу в Firebase, в которой будут тесты. А также возможность добавлять их туда
 
 export default {
   data() {
     return {
     };
-  },
-
-  beforeMount() {
-    this.clearData();
   },
 
   computed: {
@@ -48,10 +36,6 @@ export default {
   },
 
   methods: {
-    clearData() {
-      this.$store.state.testMode = false;
-    },
-
     logOut() {
       this.$router.push('/');
       this.$store.state.currentUser = null;
@@ -77,6 +61,7 @@ body {
   font-family: sans-serif;
   background-color: #282828;
   color: #f5f5f5;
+  overflow-x: hidden;
 }
 
 #app {
@@ -99,26 +84,13 @@ nav {
   justify-content: space-between;
 }
 
-main {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 3%;
-}
-
 section {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   gap: 1rem;
-
-  padding: 15px 30px 20px 30px;
-  border-radius: 10px;
-  width: 40%;
-
-  background-color: #f5f5f5;
-  color: #282828;
+  width: 100%;
 }
 
 aside {
@@ -146,10 +118,6 @@ footer {
   align-items: center;
   flex-direction: column;
   gap: 2rem;
-}
-
-.test-mode {
-  align-self: start;
 }
 
 .logo {
@@ -188,9 +156,6 @@ ul {
   align-items: center;
   padding: 0;
   list-style-type: none;
-}
-
-li {
   cursor: pointer;
 }
 
@@ -221,6 +186,7 @@ button {
 
 .btn-header:hover {
   box-shadow: 0 2px rgb(232, 240, 254);
+  transition: 0.2s;
 }
 
 button:hover {
